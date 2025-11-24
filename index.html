@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автопарк Центральный | Аренда авто под такси Йошкар-Ола</title>
+    <meta name="description" content="Аренда авто для работы в такси в Йошкар-Оле. Lada Vesta, Solaris, Haval. Подключение к Яндекс Про 1.5%. Моментальные выплаты, ремонт за счет парка.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Автопарк Центральный - Аренда авто">
+    <meta property="og:description" content="Честная аренда. Новые авто. Вывод денег 24/7.">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Шрифты и Стили -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
+            --text-light: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-body); 
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, .modal-title { font-family: 'Outfit', sans-serif; letter-spacing: -0.5px; }
+
+        /* Навигация */
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.9) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 15px 0;
+        }
+        .nav-link {
+            color: var(--text-light) !important; font-weight: 500; margin: 0 10px; position: relative;
+        }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: var(--accent); transition: 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .callback-link {
+            color: var(--accent); font-size: 0.85rem; text-decoration: none; border-bottom: 1px dashed var(--accent); transition: 0.3s; cursor: pointer;
+        }
+        .callback-link:hover { color: #fff; border-color: #fff; }
+
+        /* Кнопки */
+        .btn-primary-custom {
+            background: var(--accent); color: #000; font-weight: 700; padding: 12px 30px; border-radius: 12px; border: none; box-shadow: 0 0 20px rgba(245, 158, 11, 0.4); transition: 0.3s;
+        }
+        .btn-primary-custom:hover {
+            background: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 0 30px rgba(245, 158, 11, 0.6); color: #000;
+        }
+
+        /* Поля ввода */
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #ffffff !important; padding: 12px;
+        }
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.15) !important; border-color: var(--accent) !important; box-shadow: none !important;
+        }
+        .form-control::placeholder { color: rgba(255, 255, 255, 0.5) !important; opacity: 1; }
+
+        /* Герой */
+        .hero-section {
+            position: relative; padding: 180px 0 120px;
+            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.15), transparent 40%),
+                        linear-gradient(to bottom, rgba(15, 23, 42, 0.6), var(--bg-body)), 
+                        url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover; background-position: center; overflow: hidden;
+        }
+        
+        /* Bento & Cards */
+        .bento-box {
+            background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 25px; height: 100%; transition: 0.3s;
+        }
+        .bento-box:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); }
+
+        .car-card {
+            background: var(--bg-card); border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); height: 100%; position: relative;
+        }
+        .car-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.3); border-color: rgba(245, 158, 11, 0.3); }
+        
+        .car-img-wrapper { height: 240px; background: #253045; position: relative; overflow: hidden; }
+        .car-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .car-card:hover .car-img-wrapper img { transform: scale(1.1); }
+        
+        .car-body { padding: 30px; display: flex; flex-direction: column; height: 100%; }
+        .price-tag { background: rgba(245, 158, 11, 0.15); color: var(--accent); padding: 8px 16px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+        .tag { font-size: 0.75rem; font-weight: 600; padding: 6px 12px; border-radius: 50px; background: rgba(255,255,255,0.05); color: var(--text-dim); display: inline-block; margin-right: 5px; margin-bottom: 5px; }
+        .tag-accent { background: rgba(245, 158, 11, 0.15); color: var(--accent); }
+        
+        .badge-buyout { position: absolute; top: 15px; left: 15px; background: #ef4444; color: white; padding: 6px 16px; border-radius: 50px; font-weight: 700; font-size: 0.75rem; z-index: 10; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4); }
+
+        /* Стили для Timeline */
+        .timeline-step { position: relative; z-index: 1; }
+        .timeline-icon { width: 80px; height: 80px; background: var(--bg-card); border: 2px solid var(--text-dim); color: white; font-size: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; margin-bottom: 15px; transition: 0.3s; }
+        .timeline-step:hover .timeline-icon { border-color: var(--accent); color: var(--accent); transform: scale(1.1); }
+
+        /* FAQ */
+        .accordion-item { background-color: var(--bg-card); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px !important; margin-bottom: 10px; overflow: hidden; }
+        .accordion-button { background-color: var(--bg-card); color: var(--text-light); font-weight: 600; box-shadow: none !important; }
+        .accordion-button:not(.collapsed) { background-color: rgba(245, 158, 11, 0.15); color: var(--accent); }
+        .accordion-button::after { filter: invert(1); }
+        .accordion-body { color: #e2e8f0; background-color: #1a2436; font-size: 1.05rem; line-height: 1.6; }
+
+        /* Виджет чата */
+        .chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 2000; display: flex; flex-direction: column-reverse; align-items: center; gap: 10px; }
+        @media (max-width: 768px) { .chat-widget { bottom: 90px; right: 20px; } }
+        .chat-toggle { width: 60px; height: 60px; background: var(--accent); border-radius: 50%; border: none; box-shadow: 0 5px 20px rgba(245, 158, 11, 0.5); color: #000; font-size: 24px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; animation: pulse-gold 2s infinite; }
+        .chat-toggle.active { animation: none; background: #fff; color: #000; }
+        .chat-buttons { display: flex; flex-direction: column; gap: 10px; opacity: 0; visibility: hidden; transform: translateY(20px); transition: 0.3s; }
+        .chat-buttons.active { opacity: 1; visibility: visible; transform: translateY(0); }
+        .chat-btn { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 22px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; }
+        .chat-btn:hover { transform: scale(1.1); }
+        .chat-btn.wa { background: #25D366; }
+        .chat-btn.tg { background: #0088cc; }
+        @keyframes pulse-gold { 0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(245, 158, 11, 0); } 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); } }
+
+        /* Mobile Nav */
+        .mobile-nav { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 10px; display: flex; gap: 10px; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .mobile-btn { flex: 1; text-align: center; padding: 12px; border-radius: 40px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+        @media (min-width: 768px) { .mobile-nav { display: none; } }
+
+        .text-gradient { background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="logo.png" alt="Logo" width="50" height="50" class="me-3 rounded-circle border border-secondary">
+                <div class="d-flex flex-column">
+                    <span class="text-secondary text-uppercase fw-bold" style="font-size: 0.7rem; letter-spacing: 2px;">Автопарк</span>
+                    <span class="fw-bold text-light" style="font-size: 1.5rem; line-height: 1;">Центральный</span>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#catalog">Аренда</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#connect">Подключение</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courier">Курьеры</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <div class="text-end">
+                            <a href="tel:+79278835566" class="d-block text-white fw-bold text-decoration-none">+7 (927) 883-55-66</a>
+                            <span class="callback-link" data-bs-toggle="modal" data-bs-target="#callbackModal">Заказать звонок</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой -->
+    <section class="hero-section d-flex align-items-center">
+        <div class="container position-relative z-2">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="d-inline-block px-3 py-1 border border-warning rounded-pill text-warning mb-3 small fw-bold">
+                        <i class="fas fa-star me-1"></i> Официальный партнер
+                    </div>
+                    <h1 class="display-3 fw-bold mb-4 text-gradient">Аренда авто <br> в Йошкар-Оле</h1>
+                    <p class="fs-5 text-dim mb-5" style="max-width: 600px;">
+                        Честные условия, моментальные выплаты. Без скрытых комиссий.
+                    </p>
+                    
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#catalog" class="btn btn-primary-custom">Выбрать авто</a>
+                        <a href="#connect" class="btn btn-outline-light rounded-3 px-4 py-3 fw-bold">Подключиться</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="row mt-5 g-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-6 col-md-3">
+                    <div class="bento-box text-center">
+                        <h3 class="text-white fw-bold mb-0">1.5%</h3>
+                        <small class="text-dim">Комиссия</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="bento-box text-center">
+                        <h3 class="text-white fw-bold mb-0">24/7</h3>
+                        <small class="text-dim">Выплаты</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="bento-box text-center">
+                        <h3 class="text-white fw-bold mb-0">0₽</h3>
+                        <small class="text-dim">Скрытых комиссий</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="bento-box text-center">
+                        <h3 class="text-white fw-bold mb-0"><i class="fas fa-gas-pump text-warning"></i></h3>
+                        <small class="text-dim">Авто на газу</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КАТАЛОГ -->
+    <section id="catalog" class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-5" data-aos="fade-right">
+                <div>
+                    <h2 class="fw-bold mb-2">Наш автопарк</h2>
+                    <p class="text-dim mb-0">Техническое обслуживание и ремонт полностью за наш счет</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- CARS -->
+                <!-- Vesta 21 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="car-card">
+                        <div class="badge-buyout">ВОЗМОЖЕН ВЫКУП</div>
+                        <div class="car-img-wrapper"><img src="https://s.auto.drom.ru/i24219/c/photos/generations/500x_lada_vesta_g8182.jpg?712354" alt="Vesta"></div>
+                        <div class="car-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="mb-0">Lada Vesta '21</h4>
+                                <div class="price-tag">1700₽</div>
+                            </div>
+                            <div class="mb-3"><span class="tag">МКПП</span><span class="tag tag-accent">ГАЗ</span></div>
+                            <ul class="list-unstyled text-dim small mb-4">
+                                <li><i class="fas fa-check text-success me-2"></i> Есть белые и с брендом</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Просторный салон</li>
+                            </ul>
+                            <a href="https://wa.me/79278835566" class="btn btn-outline-light w-100 rounded-3 mt-auto">Бронировать</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vesta 23 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="car-card">
+                        <div class="badge-buyout">ВОЗМОЖЕН ВЫКУП</div>
+                        <div class="car-img-wrapper"><img src="https://s.auto.drom.ru/i24277/c/photos/generations/500x_lada_vesta_g11630.jpg?975578" alt="Vesta NG"></div>
+                        <div class="car-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="mb-0">Vesta NG '23</h4>
+                                <div class="price-tag">2000₽</div>
+                            </div>
+                            <div class="mb-3"><span class="tag">МКПП</span><span class="tag tag-accent">ГАЗ</span></div>
+                            <ul class="list-unstyled text-dim small mb-4">
+                                <li><i class="fas fa-check text-success me-2"></i> Новый кузов + LED</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Авто без наклеек (Белая)</li>
+                            </ul>
+                            <a href="https://wa.me/79278835566" class="btn btn-outline-light w-100 rounded-3 mt-auto">Бронировать</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Solaris MT -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="car-card">
+                        <div class="car-img-wrapper"><img src="https://avatars.mds.yandex.net/get-verba/216201/2a000001609d50171d245862593080131863/cattouchret" alt="Solaris"></div>
+                        <div class="car-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="mb-0">Solaris '21</h4>
+                                <div class="price-tag">1900₽</div>
+                            </div>
+                            <div class="mb-3"><span class="tag">МКПП</span><span class="tag tag-accent">ГАЗ</span></div>
+                            <ul class="list-unstyled text-dim small mb-4">
+                                <li><i class="fas fa-check text-success me-2"></i> Надежный и экономичный</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Без наклеек (Белая)</li>
+                            </ul>
+                            <a href="https://wa.me/79278835566" class="btn btn-outline-light w-100 rounded-3 mt-auto">Бронировать</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Solaris AT -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="car-card">
+                        <div class="car-img-wrapper"><img src="https://avatars.mds.yandex.net/get-verba/216201/2a000001609d50171d245862593080131863/cattouchret" alt="Solaris"></div>
+                        <div class="car-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="mb-0">Solaris '21</h4>
+                                <div class="price-tag">2100₽</div>
+                            </div>
+                            <div class="mb-3"><span class="tag tag-accent">АКПП</span><span class="tag tag-accent">ГАЗ</span></div>
+                            <ul class="list-unstyled text-dim small mb-4">
+                                <li><i class="fas fa-check text-success me-2"></i> Комфортная езда</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Без наклеек (Белая)</li>
+                            </ul>
+                            <a href="https://wa.me/79278835566" class="btn btn-outline-light w-100 rounded-3 mt-auto">Бронировать</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Jetta -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="car-card">
+                        <div class="badge-buyout">ВОЗМОЖЕН ВЫКУП</div>
+                        <div class="car-img-wrapper"><img src="https://avatars.mds.yandex.net/get-verba/154074/2a000001883929e9994a6e2925768067853b/cattouchret" alt="Jetta"></div>
+                        <div class="car-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="mb-0">Jetta VA3</h4>
+                                <div class="price-tag">2300₽</div>
+                            </div>
+                            <div class="mb-3"><span class="tag tag-accent">АКПП</span><span class="tag tag-accent">ГАЗ</span></div>
+                            <ul class="list-unstyled text-dim small mb-4">
+                                <li><i class="fas fa-check text-success me-2"></i> Аналог VW Polo</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Без наклеек (Белая)</li>
+                            </ul>
+                            <a href="https://wa.me/79278835566" class="btn btn-outline-light w-100 rounded-3 mt-auto">Бронировать</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Solaris 24 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="car-card" style="border-color: var(--accent);">
+                        <div class="car-img-wrapper"><img src="https://avatars.mds.yandex.net/get-verba/997355/2a0000018f2a952163d79764e722995ebdc3/cattouchret" alt="Solaris 24"></div>
+                        <div class="car-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="mb-0">Solaris '24</h4>
+                                <div class="price-tag">2600₽</div>
+                            </div>
+                            <div class="mb-3"><span class="tag tag-accent">АКПП</span><span class="tag text-white bg-success">Свежий год</span></div>
+                            <ul class="list-unstyled text-dim small mb-4">
+                                <li><i class="fas fa-check text-success me-2"></i> Без оклейки (Разные цвета)</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Максимальный комфорт</li>
+                            </ul>
+                            <a href="https://wa.me/79278835566" class="btn btn-primary-custom w-100 mt-auto">Бронировать</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Haval -->
+                <div class="col-12" data-aos="zoom-in">
+                    <div class="car-card d-md-flex flex-md-row align-items-center p-0">
+                        <div class="badge-buyout">ВОЗМОЖЕН ВЫКУП</div>
+                        <div class="col-md-6 h-100">
+                            <div class="car-img-wrapper h-100"><img src="https://s.auto.drom.ru/i24272/c/photos/generations/500x_haval_jolion_g11364.jpg?897966" alt="Haval"></div>
+                        </div>
+                        <div class="col-md-6 p-4">
+                            <h3 class="fw-bold mb-3">Haval Jolion (2025)</h3>
+                            <div class="mb-4"><span class="tag tag-accent">Комфорт +</span><span class="tag">АКПП</span><span class="tag tag-accent">ГАЗ</span></div>
+                            <p class="text-dim mb-4">Кроссовер для высокого заработка. Климат-контроль, мультимедиа. Автомобиль белого цвета без наклеек.</p>
+                            <div class="d-flex gap-4 mb-4">
+                                <div><div class="text-dim small">Аренда</div><div class="fs-4 fw-bold text-white">2900₽</div></div>
+                                <div class="vr bg-secondary"></div>
+                                <div><div class="text-dim small">Выкуп</div><div class="fs-4 fw-bold text-danger">3000₽</div></div>
+                            </div>
+                            <a href="https://wa.me/79278835566" class="btn btn-primary-custom w-100">Хочу эту машину</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Курьеры -->
+    <section id="courier" class="py-5">
+        <div class="container">
+            <div class="courier-section p-5" data-aos="flip-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <span class="badge bg-success mb-3">Яндекс Доставка</span>
+                        <h2 class="fw-bold mb-3">Заработок для курьеров</h2>
+                        <p class="text-dim fs-5 mb-4">
+                            Ваш авто не подходит для такси? Или нет стажа? Не беда! <br>
+                            В доставке можно работать на любой машине, а также пешком или на велосипеде.
+                        </p>
+                        <div class="row g-3 mb-4">
+                            <div class="col-sm-6"><div class="d-flex align-items-center text-dim"><i class="fas fa-check-circle text-success me-2"></i> Стаж не важен</div></div>
+                            <div class="col-sm-6"><div class="d-flex align-items-center text-dim"><i class="fas fa-check-circle text-success me-2"></i> Любой год авто</div></div>
+                            <div class="col-sm-6"><div class="d-flex align-items-center text-dim"><i class="fas fa-check-circle text-success me-2"></i> Пешком / Вело</div></div>
+                            <div class="col-sm-6"><div class="d-flex align-items-center text-white fw-bold"><i class="fas fa-box text-warning me-2"></i> Термокороба в наличии</div></div>
+                        </div>
+                        <a href="https://wa.me/79278835566" class="btn btn-outline-light rounded-3 px-4">Стать курьером</a>
+                    </div>
+                    <div class="col-lg-5 text-center mt-4 mt-lg-0">
+                        <img src="https://avatars.mds.yandex.net/get-bunker/50064/a874991d6b988564825221c2c9113610100b755f/orig" class="img-fluid rounded-circle shadow-lg" style="border: 5px solid rgba(255,255,255,0.1);">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КАК НАЧАТЬ -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="fw-bold text-center text-white mb-5" data-aos="fade-up">Всего 4 шага до первой зарплаты</h2>
+            <div class="row g-4 justify-content-center position-relative">
+                <div class="d-none d-lg-block position-absolute top-50 start-0 w-100 border-top border-secondary" style="z-index: 0; transform: translateY(-20px);"></div>
+                <!-- Steps -->
+                <div class="col-6 col-lg-3 text-center position-relative z-1" data-aos="fade-up" data-aos-delay="0">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width: 80px; height: 80px; background: var(--bg-card); border: 2px solid var(--accent); color: var(--accent); font-size: 24px;"><i class="fas fa-phone-alt"></i></div>
+                    <h5 class="text-white">Заявка</h5>
+                    <p class="text-dim small px-2">Оставьте заявку на сайте или позвоните нам.</p>
+                </div>
+                <div class="col-6 col-lg-3 text-center position-relative z-1" data-aos="fade-up" data-aos-delay="100">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width: 80px; height: 80px; background: var(--bg-card); border: 2px solid var(--text-dim); color: white; font-size: 24px;"><i class="fas fa-passport"></i></div>
+                    <h5 class="text-white">Проверка</h5>
+                    <p class="text-dim small px-2">Служба безопасности проверит документы за 15 минут.</p>
+                </div>
+                <div class="col-6 col-lg-3 text-center position-relative z-1" data-aos="fade-up" data-aos-delay="200">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width: 80px; height: 80px; background: var(--bg-card); border: 2px solid var(--text-dim); color: white; font-size: 24px;"><i class="fas fa-car"></i></div>
+                    <h5 class="text-white">Выдача авто</h5>
+                    <p class="text-dim small px-2">Приезжаете в офис, подписываем договор и выдаем авто.</p>
+                </div>
+                <div class="col-6 col-lg-3 text-center position-relative z-1" data-aos="fade-up" data-aos-delay="300">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width: 80px; height: 80px; background: var(--accent); color: black; font-size: 24px; box-shadow: 0 0 20px rgba(245,158,11,0.5);"><i class="fas fa-ruble-sign"></i></div>
+                    <h5 class="text-white">Заработок</h5>
+                    <p class="text-dim small px-2">Выходите на линию и получаете деньги уже через 2 часа.</p>
+                </div>
+            </div>
+            <div class="text-center mt-5"><a href="#" data-bs-toggle="modal" data-bs-target="#callbackModal" class="btn btn-primary-custom px-5">Начать работу</a></div>
+        </div>
+    </section>
+
+    <!-- Подключение -->
+    <section id="connect" class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="bento-box h-100 d-flex flex-column justify-content-center">
+                        <h3 class="fw-bold mb-4">Подключение частников</h3>
+                        <div class="row g-3 mb-4">
+                            <div class="col-6"><div class="p-3 rounded-3 text-center" style="background: rgba(255,255,255,0.05);"><div class="h2 fw-bold text-warning mb-0">1.5%</div><small class="text-dim">Комиссия</small></div></div>
+                            <div class="col-6"><div class="p-3 rounded-3 text-center" style="background: rgba(255,255,255,0.05);"><div class="h2 fw-bold text-warning mb-0">1%</div><small class="text-dim">Вывод</small></div></div>
+                        </div>
+                        <h5 class="fw-bold mb-3">Помощь с документами:</h5>
+                        <ul class="list-unstyled text-dim">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Открытие Самозанятости / ИП</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Внесение в Реестр такси (ФГИС)</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Внесение в Реестр перевозчиков</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="bento-box h-100 text-center d-flex flex-column align-items-center justify-content-center">
+                        <div class="mb-4 p-4 rounded-circle" style="background: rgba(245, 158, 11, 0.1);"><i class="fas fa-wallet text-warning display-4"></i></div>
+                        <h3 class="fw-bold">Моментальные деньги</h3>
+                        <p class="text-dim px-4">Нажмите кнопку в приложении — деньги на карте любого банка через 2 секунды. Круглосуточно.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section id="reviews" class="py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-5 text-center">Что говорят водители</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="bento-box">
+                        <div class="text-warning mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-dim fst-italic">"Все устраивает в парке, отношение лояльное, залог можно разбить, выплаты моментальные."</p>
+                        <div class="fw-bold mt-3 text-white">Александр Б.</div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bento-box">
+                        <div class="text-warning mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-dim fst-italic">"Обслуживание автомобилей за счет парка, машины все живые, газ есть."</p>
+                        <div class="fw-bold mt-3 text-white">Михаил Л.</div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bento-box">
+                        <div class="text-warning mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <p class="text-dim fst-italic">"Залог вернули без проблем через 2 недели как обещали. Рекомендую!"</p>
+                        <div class="fw-bold mt-3 text-white">Иван С.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="contacts" class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <h3 class="fw-bold mb-4">Частые вопросы</h3>
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Какие документы нужны?</button></h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">Паспорт РФ и Водительское удостоверение (стаж от 3 лет).</div></div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Залог возвращается?</button></h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Да, депозит полностью возвратный. Мы удерживаем его всего 14 дней после сдачи автомобиля для проверки наличия штрафов ГИБДД. Если штрафов нет — возвращаем всю сумму вам.</div></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Map -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bento-box p-0 overflow-hidden position-relative h-100">
+                        <div class="row h-100 g-0">
+                            <div class="col-md-7 h-100"><div class="map-wrapper h-100" style="border: none;"><iframe src="https://yandex.ru/map-widget/v1/?text=Йошкар-Ола+Козьмодемьянский+тракт+127&z=16" width="100%" height="100%" frameborder="0"></iframe></div></div>
+                            <div class="col-md-5 bg-card p-4 d-flex flex-column justify-content-center">
+                                <h5 class="fw-bold mb-2">Наш офис</h5>
+                                <p class="text-dim small mb-4">г. Йошкар-Ола, <br>Козьмодемьянский тракт, 127</p>
+                                <a href="https://yandex.ru/maps/?text=Йошкар-Ола+Козьмодемьянский+тракт+127" target="_blank" class="btn btn-outline-light btn-sm w-100">Открыть карту</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="py-5 mt-5 border-top border-secondary border-opacity-25">
+        <div class="container">
+            <div class="row gy-4 justify-content-between">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="logo.png" width="40" class="me-3 rounded-circle">
+                        <div style="line-height: 1;"><div class="text-dim small text-uppercase">Автопарк</div><div class="fw-bold fs-4 text-white">Центральный</div></div>
+                    </div>
+                    <p class="text-dim small">© 2024. Официальный партнер Яндекс Про.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-white mb-3">Режим работы</h5>
+                    <p class="text-dim mb-1">Пн-Пт: 09:00 - 19:00</p>
+                    <p class="text-dim">Сб-Вс: 10:00 - 17:00</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="tel:+79278835566" class="d-block fs-4 fw-bold text-white text-decoration-none mb-2">+7 (927) 883-55-66</a>
+                    <div class="d-flex gap-3 justify-content-md-end">
+                        <a href="https://wa.me/79278835566" class="btn btn-outline-secondary rounded-circle"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://t.me/yotaxi" class="btn btn-outline-secondary rounded-circle"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top border-secondary border-opacity-10">
+                <a href="#" class="text-decoration-none text-dim small" style="font-size: 12px;" data-bs-toggle="modal" data-bs-target="#policyModal">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav">
+        <a href="https://wa.me/79278835566" class="mobile-btn text-white" style="background: #25D366;"><i class="fab fa-whatsapp me-1"></i> Написать</a>
+        <a href="tel:+79278835566" class="mobile-btn text-black" style="background: var(--accent);"><i class="fas fa-phone me-1"></i> Позвонить</a>
+    </div>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-buttons" id="chatButtons">
+            <a href="https://t.me/yotaxi" class="chat-btn tg" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://wa.me/79278835566" class="chat-btn wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <button class="chat-toggle" id="chatToggle"><i class="fas fa-comment-dots"></i></button>
+    </div>
+
+    <!-- Модальное окно: Заявка -->
+    <div class="modal fade" id="callbackModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background: var(--bg-card); border: 1px solid rgba(255,255,255,0.1);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-white">Заказать звонок</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-dim mb-4">Оставьте свой номер телефона, и менеджер перезвонит вам в течение 15 минут.</p>
+                    <form id="callbackForm">
+                        <div class="mb-3"><input type="text" name="name" class="form-control" placeholder="Ваше имя" required></div>
+                        <div class="mb-3"><input type="tel" name="phone" class="form-control" placeholder="+7 (999) 000-00-00" required></div>
+                        <button type="submit" class="btn btn-primary-custom w-100">Жду звонка</button>
+                    </form>
+                    <p class="text-center mt-3 small text-dim">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Политика -->
+    <div class="modal fade" id="policyModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content bg-dark text-secondary" style="border: 1px solid #333;">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white">Политика конфиденциальности</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body small">
+                    <p>Настоящая Политика конфиденциальности действует в отношении всей информации, которую сайт может получить о Пользователе.</p>
+                    <h6>1. Сбор данных</h6>
+                    <p>Мы собираем только имя и телефон для обратной связи.</p>
+                    <h6>2. Безопасность</h6>
+                    <p>Мы не передаем ваши данные третьим лицам.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+
+        // Chat Widget Toggle
+        const chatToggle = document.getElementById('chatToggle');
+        const chatButtons = document.getElementById('chatButtons');
+        const icon = chatToggle.querySelector('i');
+        chatToggle.addEventListener('click', () => {
+            chatButtons.classList.toggle('active');
+            chatToggle.classList.toggle('active');
+            icon.classList.toggle('fa-comment-dots');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Отправка формы в Telegram
+        document.getElementById('callbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const btn = this.querySelector('button');
+            const originalText = btn.innerText;
+            
+            btn.innerText = 'Отправка...';
+            btn.disabled = true;
+
+            fetch('send.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Спасибо! Заявка успешно отправлена.');
+                    bootstrap.Modal.getInstance(document.getElementById('callbackModal')).hide();
+                    this.reset();
+                } else {
+                    alert('Ошибка отправки. Пожалуйста, позвоните нам.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ошибка отправки.');
+            })
+            .finally(() => {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
