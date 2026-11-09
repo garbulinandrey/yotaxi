@@ -16,7 +16,7 @@ const assert = require('node:assert/strict');
             if (url.hostname === 'yandex.ru') return route.abort();
             return route.continue();
         });
-        await page.route('**/send.php', async route => {
+        await page.route('**/send-booking.php', async route => {
             submissions.push(route.request().postData());
             await route.fulfill({json: {status: 'success'}});
         });

@@ -48,6 +48,7 @@ test('invalid phone stays local and focuses its error field', async () => {
 test('success normalizes phone, resets form, and works without AOS or Bootstrap', async () => {
     const view = setup(() => ({ok: true, json: async () => ({status: 'success'})}));
     await view.submit();
+    assert.equal(view.calls[0].url, 'send-booking.php');
     assert.equal(view.calls[0].options.body.values.phone, '+79991234567');
     assert.equal(view.calls[0].options.body.values.name, 'Анна');
     assert.equal(view.elements['cb-phone'].value, '');

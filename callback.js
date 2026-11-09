@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 18000);
         try {
-            const response = await fetch('send.php', {
+            const response = await fetch('send-booking.php', {
                 method: 'POST', body: data, signal: controller.signal
             });
             const result = await response.json();
