@@ -401,7 +401,7 @@
         @media (min-width: 768px) { .mobile-nav { display: none; } }
         .text-gradient { background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
-    <link rel="stylesheet" href="booking-preview/site.css?v=20261109-5">
+    <link rel="stylesheet" href="booking-preview/site.css?v=20261109-mobile-1">
 </head>
 <body>
     <!-- Шапка -->
@@ -443,13 +443,14 @@
                     <div class="d-inline-block px-3 py-1 border border-warning rounded-pill text-warning mb-3 small fw-bold">
                         <i class="fas fa-star me-1"></i> Официальный партнер Яндекс Про
                     </div>
-                    <h1 class="display-3 fw-bold mb-4 text-gradient">Аренда авто под такси<br>в Йошкар-Оле</h1>
+                    <h1 class="display-3 fw-bold mb-4 text-gradient">Аренда авто под такси<br><span class="hero-location">в Йошкар-Оле</span></h1>
                     <p class="fs-5 text-dim mb-5" style="max-width:600px;">
-                        Первый день бесплатно. Депозит можно вносить частями — по 300 ₽ в день.
+                        <span class="hero-start-price">от 1 700 ₽<small>/сутки</small></span>
+                        Первый день — бесплатно. Ремонт и обслуживание — за наш счёт.
                     </p>
                     <div class="hero-actions d-flex gap-3 flex-wrap">
-                        <a href="#catalog" class="btn btn-primary-custom">Выбрать авто</a>
-                        <a href="#terms" class="btn btn-outline-light rounded-3 px-4 py-3 fw-bold">Условия аренды</a>
+                        <a href="#catalog" class="btn btn-primary-custom">Выбрать автомобиль <span class="cta-arrow" aria-hidden="true"></span></a>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#callbackModal" class="btn btn-outline-light rounded-3 px-4 py-3 fw-bold">Помочь с выбором</button>
                     </div>
                     <div class="hero-paths">
                         <a href="#connect">Есть своё авто? Подключиться</a>
@@ -457,17 +458,17 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-5 g-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="row mt-5 g-3 hero-benefits" data-aos="fade-up" data-aos-delay="200">
                 <div class="col-6 col-md-3">
                     <div class="bento-box text-center">
-                        <h3 class="text-white fw-bold mb-0">1,5%</h3>
-                        <small class="text-dim">Такси · ИП и самозанятые</small>
+                        <h3 class="text-white fw-bold mb-0">300 ₽</h3>
+                        <small class="text-dim">Депозит 10 000 ₽ частями</small>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
                     <div class="bento-box text-center">
-                        <h3 class="text-white fw-bold mb-0">24/7</h3>
-                        <small class="text-dim">Выплаты</small>
+                        <h3 class="text-white fw-bold mb-0">0 ₽</h3>
+                        <small class="text-dim">Первый день аренды</small>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
@@ -495,9 +496,17 @@
                     <p class="text-dim mb-0">Выберите автомобиль для работы. Техническое обслуживание и ремонт — за наш счёт.</p>
                 </div>
             </div>
+            <div class="catalog-toolbar">
+                <div class="catalog-filters" role="group" aria-label="Коробка передач">
+                    <button type="button" data-filter="all" aria-pressed="true">Все авто</button>
+                    <button type="button" data-filter="auto" aria-pressed="false">Автомат</button>
+                    <button type="button" data-filter="manual" aria-pressed="false">Механика</button>
+                </div>
+                <p id="catalogCount" class="catalog-count" aria-live="polite">6 моделей · наличие уточнит менеджер</p>
+            </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="car-card">
+                    <article class="car-card" data-gearbox="manual">
                         <div class="car-img-wrapper"><span class="badge-buyout">Возможен выкуп</span><img src="vesta21.jpeg" alt="Lada Vesta 2019–2021 — аренда под такси" loading="lazy" width="400" height="240"></div>
                         <div class="car-body">
                             <div class="car-heading"><h3>Lada Vesta</h3><span class="car-year">2019–2021</span></div>
@@ -510,12 +519,12 @@
                                 <figure><a href="vesta21.jpeg" target="_blank" rel="noopener"><img src="vesta21.jpeg" alt="Lada Vesta — внешний вид" loading="lazy" width="400" height="240"></a><figcaption>Внешний вид · нажмите на фото, чтобы увеличить</figcaption></figure>
                                 <p class="small text-dim">Комплектацию и наличие конкретного автомобиля подтвердит менеджер.</p>
                             </details>
-                            <button type="button" class="btn btn-outline-light booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="vesta-2019-21">Бронировать</button>
+                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="vesta-2019-21">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button>
                         </div>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="car-card">
+                    <article class="car-card" data-gearbox="manual">
                         <div class="car-img-wrapper"><span class="badge-buyout">Возможен выкуп</span><img src="vesta23.jpg" alt="Lada Vesta NG 2023 — аренда под такси" loading="lazy" width="400" height="240"></div>
                         <div class="car-body">
                             <div class="car-heading"><h3>Lada Vesta NG</h3><span class="car-year">2023</span></div>
@@ -528,17 +537,17 @@
                                 <figure><a href="vesta23.jpg" target="_blank" rel="noopener"><img src="vesta23.jpg" alt="Lada Vesta NG — внешний вид" loading="lazy" width="400" height="240"></a><figcaption>Внешний вид · нажмите на фото, чтобы увеличить</figcaption></figure>
                                 <p class="small text-dim">Комплектацию и наличие конкретного автомобиля подтвердит менеджер.</p>
                             </details>
-                            <button type="button" class="btn btn-outline-light booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="vesta-2023">Бронировать</button>
+                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="vesta-2023">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button>
                         </div>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="car-card">
+                    <article class="car-card" data-gearbox="manual auto">
                         <div class="car-img-wrapper"><img src="solaris.jpeg" alt="Solaris 2021 — аренда под такси" loading="lazy" width="400" height="240"></div>
                         <div class="car-body">
                             <div class="car-heading"><h3>Solaris</h3><span class="car-year">2021</span></div>
                             <div class="car-tags"><span class="tag">МКПП / АКПП</span><span class="tag">ГАЗ</span></div>
-                            <div class="car-rates"><div class="car-rate"><span class="car-rate-label">МКПП</span><div class="car-rate-value">от 1&nbsp;900&nbsp;₽</div><span class="car-rate-unit">/сутки</span></div><div class="car-rate"><span class="car-rate-label">АКПП</span><div class="car-rate-value">от 2&nbsp;100&nbsp;₽</div><span class="car-rate-unit">/сутки</span></div></div>
+                            <div class="car-rates" role="group" aria-label="Выберите вариант автомобиля"><button type="button" class="car-rate car-rate-choice" data-variant="solaris-manual" aria-pressed="true"><span class="car-rate-label">МКПП</span><span class="car-rate-value">от 1&nbsp;900&nbsp;₽</span><span class="car-rate-unit">/сутки</span></button><button type="button" class="car-rate car-rate-choice" data-variant="solaris-auto" aria-pressed="false"><span class="car-rate-label">АКПП</span><span class="car-rate-value">от 2&nbsp;100&nbsp;₽</span><span class="car-rate-unit">/сутки</span></button></div>
                             <p class="car-description">Надёжный и экономичный</p>
                             <details class="car-details"><summary>Подробнее об автомобиле</summary>
                                 <p>Надёжный и экономичный. Комфорт и простота в управлении.</p>
@@ -546,12 +555,12 @@
                                 <figure><a href="solaris.jpeg" target="_blank" rel="noopener"><img src="solaris.jpeg" alt="Solaris — внешний вид" loading="lazy" width="400" height="240"></a><figcaption>Внешний вид · нажмите на фото, чтобы увеличить</figcaption></figure>
                                 <p class="small text-dim">Комплектацию и наличие конкретного автомобиля подтвердит менеджер.</p>
                             </details>
-                            <button type="button" class="btn btn-outline-light booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="solaris-manual">Бронировать</button>
+                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="solaris-manual">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button>
                         </div>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="car-card">
+                    <article class="car-card" data-gearbox="auto">
                         <div class="car-img-wrapper"><span class="badge-buyout">Возможен выкуп</span><img src="jetta.jpeg" alt="Jetta VA3  — аренда под такси" loading="lazy" width="400" height="240"></div>
                         <div class="car-body">
                             <div class="car-heading"><h3>Jetta VA3</h3><span class="car-year">&nbsp;</span></div>
@@ -564,17 +573,17 @@
                                 <figure><a href="jetta.jpeg" target="_blank" rel="noopener"><img src="jetta.jpeg" alt="Jetta VA3 — внешний вид" loading="lazy" width="400" height="240"></a><figcaption>Внешний вид · нажмите на фото, чтобы увеличить</figcaption></figure>
                                 <p class="small text-dim">Комплектацию и наличие конкретного автомобиля подтвердит менеджер.</p>
                             </details>
-                            <button type="button" class="btn btn-outline-light booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="jetta">Бронировать</button>
+                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="jetta">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button>
                         </div>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="car-card">
+                    <article class="car-card" data-gearbox="auto">
                         <div class="car-img-wrapper"><img src="solaris24.jpeg" alt="Solaris 2024–2025 — аренда под такси" loading="lazy" width="400" height="240"></div>
                         <div class="car-body">
                             <div class="car-heading"><h3>Solaris</h3><span class="car-year">2024–2025</span></div>
                             <div class="car-tags"><span class="tag">АКПП</span></div>
-                            <div class="car-rates"><div class="car-rate"><span class="car-rate-label">2024 год</span><div class="car-rate-value">от 2&nbsp;400&nbsp;₽</div><span class="car-rate-unit">/сутки</span></div><div class="car-rate"><span class="car-rate-label">2025 год</span><div class="car-rate-value">от 2&nbsp;500&nbsp;₽</div><span class="car-rate-unit">/сутки</span></div></div>
+                            <div class="car-rates" role="group" aria-label="Выберите вариант автомобиля"><button type="button" class="car-rate car-rate-choice" data-variant="solaris-2024" aria-pressed="true"><span class="car-rate-label">2024 год</span><span class="car-rate-value">от 2&nbsp;400&nbsp;₽</span><span class="car-rate-unit">/сутки</span></button><button type="button" class="car-rate car-rate-choice" data-variant="solaris-2025" aria-pressed="false"><span class="car-rate-label">2025 год</span><span class="car-rate-value">от 2&nbsp;500&nbsp;₽</span><span class="car-rate-unit">/сутки</span></button></div>
                             <p class="car-description">Надёжный и экономичный</p>
                             <details class="car-details"><summary>Подробнее об автомобиле</summary>
                                 <p>Надёжный и экономичный. Максимальный комфорт.</p>
@@ -582,17 +591,17 @@
                                 <figure><a href="solaris24.jpeg" target="_blank" rel="noopener"><img src="solaris24.jpeg" alt="Solaris — внешний вид" loading="lazy" width="400" height="240"></a><figcaption>Внешний вид · нажмите на фото, чтобы увеличить</figcaption></figure>
                                 <p class="small text-dim">Комплектацию и наличие конкретного автомобиля подтвердит менеджер.</p>
                             </details>
-                            <button type="button" class="btn btn-outline-light booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="solaris-2024">Бронировать</button>
+                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="solaris-2024">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button>
                         </div>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="car-card">
+                    <article class="car-card" data-gearbox="auto">
                         <div class="car-img-wrapper"><span class="badge-buyout">Возможен выкуп</span><img src="haval.jpeg" alt="Haval Jolion 2025 — аренда под такси" loading="lazy" width="400" height="240"></div>
                         <div class="car-body">
                             <div class="car-heading"><h3>Haval Jolion</h3><span class="car-year">2025</span></div>
                             <div class="car-tags"><span class="tag">АКПП</span><span class="tag">ГАЗ</span><span class="tag">Комфорт+</span></div>
-                            <div class="car-rates"><div class="car-rate"><span class="car-rate-label">Аренда</span><div class="car-rate-value">от 2&nbsp;900&nbsp;₽</div><span class="car-rate-unit">/сутки</span></div><div class="car-rate"><span class="car-rate-label">Выкуп</span><div class="car-rate-value">от 3&nbsp;500&nbsp;₽</div><span class="car-rate-unit">/сутки</span></div></div>
+                            <div class="car-rates" role="group" aria-label="Выберите вариант автомобиля"><button type="button" class="car-rate car-rate-choice" data-variant="haval-rent" aria-pressed="true"><span class="car-rate-label">Аренда</span><span class="car-rate-value">от 2&nbsp;900&nbsp;₽</span><span class="car-rate-unit">/сутки</span></button><button type="button" class="car-rate car-rate-choice" data-variant="haval-buyout" aria-pressed="false"><span class="car-rate-label">Выкуп</span><span class="car-rate-value">от 3&nbsp;500&nbsp;₽</span><span class="car-rate-unit">/сутки</span></button></div>
                             <p class="car-description">Климат-контроль, мультимедиа</p>
                             <details class="car-details"><summary>Подробнее об автомобиле</summary>
                                 <p>Климат-контроль, мультимедиа. Белый кузов без наклеек.</p>
@@ -600,11 +609,23 @@
                                 <figure><a href="haval.jpeg" target="_blank" rel="noopener"><img src="haval.jpeg" alt="Haval Jolion — внешний вид" loading="lazy" width="400" height="240"></a><figcaption>Внешний вид · нажмите на фото, чтобы увеличить</figcaption></figure>
                                 <p class="small text-dim">Комплектацию и наличие конкретного автомобиля подтвердит менеджер.</p>
                             </details>
-                            <button type="button" class="btn btn-outline-light booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="haval-rent">Бронировать</button>
+                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="haval-rent">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button>
                         </div>
                     </article>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="rental-steps" aria-labelledby="stepsTitle">
+        <div class="container">
+            <h2 id="stepsTitle">От выбора — к работе</h2>
+            <ol class="steps-list">
+                <li><span class="step-number">01</span><div><h3>Выберите автомобиль</h3><p>Механика или автомат — под ваш стиль работы.</p></div></li>
+                <li><span class="step-number">02</span><div><h3>Оставьте заявку</h3><p>Только имя и телефон. Менеджер уточнит наличие и условия.</p></div></li>
+                <li><span class="step-number">03</span><div><h3>Согласуйте получение</h3><p>Обсудим документы и удобное время встречи.</p></div></li>
+            </ol>
+            <div class="selection-help"><div><h3>Не знаете, какую выбрать?</h3><p>Подскажем по автомобилям и расскажем про условия аренды.</p></div><button type="button" class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#callbackModal">Помогите выбрать</button></div>
         </div>
     </section>
 
@@ -1064,7 +1085,7 @@
                         <a href="https://wa.me/79278835566" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary rounded-circle" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://t.me/yotaxi" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary rounded-circle" title="Telegram"><i class="fab fa-telegram"></i></a>
                         <a href="https://vk.com/yotaxi12" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary rounded-circle" title="ВКонтакте"><i class="fab fa-vk"></i></a>
-                        <a href="https://max.ru/u/f9LHodD0cOIqWV7gTFNCZoua1t1hhnSrA0PSkE62GQEwLTT5bFWs73iU22M" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary rounded-circle d-inline-flex align-items-center justify-content-center" title="Max" style="width:38px;height:38px;padding:0;overflow:hidden;"><img src="max2.png" alt="Max" style="width:34px;height:34px;object-fit:contain;border-radius:50%;"></a>
+                        <a href="https://max.ru/u/f9LHodD0cOIqWV7gTFNCZoua1t1hhnSrA0PSkE62GQEwLTT5bFWs73iU22M" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary rounded-circle d-inline-flex align-items-center justify-content-center" title="Max" style="width:38px;height:38px;padding:0;overflow:hidden;"><img loading="lazy" decoding="async" src="max2.png" alt="Max" style="width:34px;height:34px;object-fit:contain;border-radius:50%;"></a>
                         <a href="mailto:info@yotaxi.ru" class="btn btn-outline-secondary rounded-circle" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
@@ -1079,10 +1100,10 @@
         <p>Разрешить аналитику посещений? Она помогает улучшать сайт. <a href="booking-preview/privacy.html" target="_blank" rel="noopener">Подробнее</a></p>
         <div><button type="button" id="analyticsDecline">Только необходимые</button><button type="button" id="analyticsAccept">Разрешить аналитику</button></div>
     </div>
-    <!-- Mobile Nav -->
-    <div class="mobile-nav">
-        <a href="https://t.me/yotaxi" class="mobile-btn text-white" style="background:#0088CC;" rel="noopener noreferrer" target="_blank"><i class="fab fa-telegram"></i> Написать</a>
-        <a href="tel:+79278835566" class="mobile-btn text-black" style="background:var(--accent);"><i class="fas fa-phone me-1"></i> Позвонить</a>
+    <!-- Primary actions stay available without opening a messenger. -->
+    <div class="mobile-nav" aria-label="Связаться с автопарком">
+        <a href="tel:+79278835566" class="mobile-call"><i class="fas fa-phone" aria-hidden="true"></i><span>Позвонить</span></a>
+        <button type="button" class="mobile-request" data-bs-toggle="modal" data-bs-target="#callbackModal">Оставить заявку <span class="cta-arrow" aria-hidden="true"></span></button>
     </div>
 
     <!-- Chat Widget -->
@@ -1091,7 +1112,7 @@
             <a href="https://t.me/yotaxi" class="chat-btn tg" target="_blank" rel="noopener noreferrer" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
             <a href="https://wa.me/79278835566" class="chat-btn wa" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             <a href="https://vk.com/yotaxi12" class="chat-btn vk" target="_blank" rel="noopener noreferrer" title="ВКонтакте"><i class="fab fa-vk"></i></a>
-            <a href="https://max.ru/u/f9LHodD0cOIqWV7gTFNCZoua1t1hhnSrA0PSkE62GQEwLTT5bFWs73iU22M" class="chat-btn max" target="_blank" rel="noopener noreferrer" title="Max" style="background:transparent;box-shadow:none;padding:0;"><img src="max.png" alt="Max" style="width:50px;height:50px;object-fit:contain;border-radius:50%;"></a>
+            <a href="https://max.ru/u/f9LHodD0cOIqWV7gTFNCZoua1t1hhnSrA0PSkE62GQEwLTT5bFWs73iU22M" class="chat-btn max" target="_blank" rel="noopener noreferrer" title="Max" style="background:transparent;box-shadow:none;padding:0;"><img loading="lazy" decoding="async" src="max.png" alt="Max" style="width:50px;height:50px;object-fit:contain;border-radius:50%;"></a>
         </div>
         <button type="button" class="chat-toggle" id="chatToggle" aria-label="Выбрать способ связи" aria-controls="chatButtons" aria-expanded="false"><i class="fas fa-comment-dots"></i></button>
     </div>
@@ -1105,7 +1126,9 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                 </div>
                 <div class="modal-body">
-                    <p class="text-dim mb-4">Оставьте номер — менеджер свяжется с вами в рабочее время: пн–пт 09:00–18:00, сб–вс 10:00–17:00.</p>
+                    <p class="callback-intro text-dim">Оставьте имя и телефон — менеджер уточнит наличие и ответит на вопросы.</p>
+                    <div id="bookingSummary" class="booking-summary" hidden><img id="bookingSummaryImage" alt="" width="88" height="60"><div><span id="bookingSummaryName"></span><strong id="bookingSummaryPrice"></strong></div></div>
+                    <div id="bookingSuccess" class="booking-success" hidden><span class="success-mark" aria-hidden="true">✓</span><h3 tabindex="-1">Заявка отправлена</h3><p>Менеджер свяжется с вами в рабочее время. Наличие автомобиля и условия подтвердим по телефону.</p><button type="button" class="btn btn-primary-custom" data-bs-dismiss="modal">Хорошо, спасибо</button></div>
                     <form id="callbackForm" novalidate>
                         <div id="cb-vehicle-group" class="mb-3" hidden>
                             <label for="cb-vehicle" class="form-label">Автомобиль и вариант</label>
@@ -1114,7 +1137,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="cb-name" class="form-label">Ваше имя</label>
-                            <input type="text" id="cb-name" name="name" class="form-control" autocomplete="given-name" maxlength="80" required aria-describedby="cb-name-error">
+                            <input type="text" id="cb-name" name="name" placeholder="Как к вам обращаться" class="form-control" autocomplete="given-name" maxlength="80" required aria-describedby="cb-name-error">
                             <div id="cb-name-error" class="invalid-feedback"></div>
                         </div>
                         <div class="mb-3">
@@ -1129,13 +1152,13 @@
                         </div>
                         <div class="form-check mb-3">
                             <input type="checkbox" class="form-check-input" id="cb-consent" name="consent" value="2026-11-09" required aria-describedby="cb-consent-error">
-                            <label class="form-check-label small" for="cb-consent">Даю <a href="booking-preview/consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для ответа на заявку. Ознакомлен(а) с <a href="booking-preview/privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a>.</label>
+                            <label class="form-check-label small" for="cb-consent">Даю <a href="booking-preview/consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a>. <a href="booking-preview/privacy.html" target="_blank" rel="noopener">Политика конфиденциальности</a>.</label>
                             <div id="cb-consent-error" class="invalid-feedback"></div>
                         </div>
                         <button type="submit" id="callbackSubmit" class="btn btn-primary-custom w-100">Жду звонка</button>
-                        <p id="callbackStatus" class="mt-3 mb-0" role="status" aria-live="polite" aria-atomic="true"></p>
                     </form>
-                    <p class="text-center mt-3 small text-dim">Отправка заявки не подтверждает бронирование. Наличие и условия уточнит менеджер.</p>
+                    <p id="callbackStatus" class="mt-3 mb-0" role="status" aria-live="polite" aria-atomic="true"></p>
+                    <p id="callbackFootnote" class="text-center mt-3 small text-dim">Отправка заявки не подтверждает бронирование. Наличие и условия уточнит менеджер.</p>
                 </div>
             </div>
         </div>
@@ -1145,7 +1168,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         if (window.AOS) {
-            AOS.init({duration:800, once:true, offset:50});
+            AOS.init({duration:450, once:true, offset:30, disable: () => window.matchMedia('(max-width: 767px), (prefers-reduced-motion: reduce)').matches});
         } else {
             // Keep the page visible if the animation CDN is unavailable.
             document.querySelectorAll('[data-aos]').forEach(el => el.removeAttribute('data-aos'));
@@ -1182,6 +1205,7 @@
         });
     </script>
     <script src="booking-preview/privacy.js?v=20261109-1" defer></script>
-    <script src="booking-preview/callback.js?v=20261109-3" defer></script>
+    <script src="booking-preview/callback.js?v=20261109-mobile-1" defer></script>
+    <script src="booking-preview/mobile.js?v=20261109-mobile-1" defer></script>
 </body>
 </html>

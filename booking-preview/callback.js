@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok && result.status === 'success') {
                 form.reset();
                 if (vehicle) vehicle.value = selectedVehicle;
+                form.dispatchEvent?.(new CustomEvent('booking:success', {detail: {vehicle: selectedVehicle}}));
                 showStatus(booking ? 'Заявка на бронирование принята. Менеджер свяжется с вами и подтвердит наличие автомобиля.' : 'Спасибо! Заявка принята. Свяжемся с вами в рабочее время.', true);
             } else {
                 if (result.errors && typeof result.errors === 'object') {
