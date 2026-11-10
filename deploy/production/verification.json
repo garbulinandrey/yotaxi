@@ -1,0 +1,11 @@
+{
+  "release": "yotaxi-main-20261110.zip",
+  "sha256": "863405a0cf978aa6895ef072a25c7f4de9ef02c4c618bad683e9ade41f6d9268",
+  "canonical": "https://yotaxi.ru/",
+  "robots": "index, follow",
+  "assets_namespace": "assets-v20261110",
+  "existing_images_required": true,
+  "form_endpoint": "send-booking.php",
+  "backend_changes": false,
+  "source_ui_unchanged_except_asset_paths": true
+}

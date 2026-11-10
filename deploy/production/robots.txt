@@ -1,0 +1,14 @@
+# Common rules for all search crawlers.
+User-agent: *
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /personal/
+Disallow: /*.pdf$
+Disallow: /cgi-bin/
+Disallow: /send.php
+Disallow: /send-booking.php
+Disallow: /releases/
+Disallow: /*.zip$
+
+# Preview pages stay crawlable so their noindex tag can be read.
+Sitemap: https://yotaxi.ru/sitemap.xml
