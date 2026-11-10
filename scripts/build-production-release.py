@@ -14,7 +14,7 @@ files = ('site.css', 'callback.js', 'mobile.js', 'vehicle.js', 'vehicle-gallerie
 for name in files:
     text = (root / name).read_text()
     if name == 'site.css':
-        text = text.replace("url('photo.avif')", "url('../photo.avif')")
+        text = text.replace("url('photo.avif')", "url('../photo.avif')").replace("url('max2.png')", "url('../max2.png')")
     if name.endswith('.html'):
         text = text.replace('href="./"', 'href="../"')
     (assets / name).write_text(text)
@@ -29,7 +29,7 @@ assert '<link rel="canonical" href="https://yotaxi.ru/">' in page
 assert 'booking-preview/' not in page and 'booking-mobile/' not in page
 assert page[page.index('<body>'):].replace(namespace + '/', '') == source[source.index('<body>'):]
 (out / 'index.html').write_text(page)
-branding = ('logo-central.png', 'favicon.ico', 'favicon-32x32.png', 'favicon-48x48.png', 'favicon-96x96.png', 'apple-touch-icon.png', 'android-chrome-192x192.png', 'android-chrome-512x512.png', 'site.webmanifest')
+branding = ('logo-central.png', 'favicon.ico', 'favicon-32x32.png', 'favicon-48x48.png', 'favicon-96x96.png', 'apple-touch-icon.png', 'android-chrome-192x192.png', 'android-chrome-512x512.png', 'site.webmanifest', 'max2.png')
 for name in ('robots.txt', 'sitemap.xml') + branding:
     shutil.copyfile(root / name, out / name)
 archive = root / 'releases/yotaxi-main-20261110.zip'

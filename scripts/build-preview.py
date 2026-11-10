@@ -9,7 +9,7 @@ for filename in ('callback.js', 'mobile.js', 'vehicle.js', 'vehicle-galleries.js
     if filename.endswith('.html'):
         text = text.replace('href="./"', 'href="../booking-preview.html"')
     (folder / filename).write_text(text)
-(folder / 'site.css').write_text((root / 'site.css').read_text().replace("url('photo.avif')", "url('../photo.avif')"))
+(folder / 'site.css').write_text((root / 'site.css').read_text().replace("url('photo.avif')", "url('../photo.avif')").replace("url('max2.png')", "url('../max2.png')"))
 text = (root / 'index.html').read_text().replace('<meta name="robots" content="index, follow">', '<meta name="robots" content="noindex, nofollow">')
 text = text.replace('href="site.css?v=', 'href="booking-preview/site.css?v=')
 for filename in ('callback.js', 'mobile.js', 'vehicle.js', 'privacy.js'):

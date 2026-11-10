@@ -367,3 +367,11 @@ body.vehicle-view-open .mobile-nav, body.vehicle-view-open .chat-widget, body.ve
     #vehicleBook { gap: 16px; font-size: .8rem; padding: 12px 14px; min-height: 48px; }
 }
 @media(prefers-reduced-motion:no-preference) { .vehicle-dialog[open] .vehicle-view-layout { animation: detail-arrive .2s ease-out both; } }
+
+/* One optical size and inherited color for every contact icon. */
+.max-mark { display: inline-block; width: 28px; height: 28px; background-color: currentColor; -webkit-mask: url('../max2.png') center / contain no-repeat; mask: url('../max2.png') center / contain no-repeat; flex: 0 0 auto; }
+.footer-socials a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: 0 0 44px; padding: 0; border: 1px solid #718197; color: #a9b9cd; background: transparent; transition: color .2s, border-color .2s, background-color .2s; }
+.footer-socials a > i { font-size: 18px; line-height: 1; }
+.footer-socials a:hover { color: #f6c66d; border-color: #f6c66d; background: #f6c66d0c; }
+.chat-btn.max { background: #1c2c46; border: 1px solid #ffffff2b; }
+.chat-btn.max .max-mark { width: 34px; height: 34px; }

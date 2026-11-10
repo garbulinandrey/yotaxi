@@ -20,7 +20,7 @@ class ProductionReleaseTests(unittest.TestCase):
     def test_indexable_homepage_and_complete_asset_set(self):
         with ZipFile(ROOT/'releases/yotaxi-main-20261110.zip') as z:
             self.assertIsNone(z.testzip())
-            names=set(z.namelist()); self.assertEqual(len(names),20)
+            names=set(z.namelist()); self.assertEqual(len(names),21)
             self.assertTrue({'index.html','robots.txt','sitemap.xml'} <= names)
             page=z.read('index.html').decode()
             self.assertIn('<meta name="robots" content="index, follow">',page)
@@ -33,6 +33,9 @@ class ProductionReleaseTests(unittest.TestCase):
                     self.assertIn(path,names)
                 elif path:
                     self.assertTrue((ROOT/path).is_file(),path)
+            self.assertEqual(page.count('class="max-mark"'),2)
+            self.assertIn("url('../max2.png')",z.read('assets-v20261110/site.css').decode())
+            self.assertIn('max2.png',names)
             self.assertNotIn('wa.me',page)
             self.assertNotIn('whatsapp',page.lower())
             self.assertIn('src="logo-central.png?v=20261110-1"',page)
