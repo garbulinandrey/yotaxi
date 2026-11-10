@@ -1,0 +1,10 @@
+# Public pages and render assets remain crawlable.
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /send.php
+Disallow: /send-booking.php
+Disallow: /releases/
+Disallow: /*.zip$
+
+# Preview HTML remains crawlable so robots can read its noindex meta tag.
+Sitemap: https://yotaxi.ru/sitemap.xml
