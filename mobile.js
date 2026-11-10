@@ -1,5 +1,17 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', () => {
+    // Start the third-party map after core page resources, before the user
+    // reaches the footer. Keep the native lazy behavior as a no-JS fallback.
+    const map = document.querySelector('iframe[title="Карта офиса Автопарк Центральный"]');
+    if (map) {
+        const warmMap = () => { map.loading = 'eager'; };
+        const queueMap = () => {
+            if ('requestIdleCallback' in window) window.requestIdleCallback(warmMap, {timeout: 2500});
+            else window.setTimeout(warmMap, 1500);
+        };
+        if (document.readyState === 'complete') queueMap();
+        else window.addEventListener('load', queueMap, {once: true});
+    }
     const cards = [...document.querySelectorAll('#catalog .car-card')];
     const vehicle = document.getElementById('cb-vehicle');
     const modal = document.getElementById('callbackModal');
