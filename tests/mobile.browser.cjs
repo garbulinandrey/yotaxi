@@ -12,7 +12,7 @@ const assert = require('node:assert/strict');
             submissions.push(route.request().postData());
             await route.fulfill({json: {status: 'success'}});
         });
-        await page.goto((process.env.SITE_URL || 'http://127.0.0.1:8090/') + 'booking-preview.html', {waitUntil: 'networkidle'});
+        await page.goto((process.env.SITE_URL || 'http://127.0.0.1:8090/') + (process.env.PREVIEW_PAGE || 'booking-preview.html'), {waitUntil: 'networkidle'});
         await page.getByRole('button', {name: 'Только необходимые', exact: true}).click();
         const bar = page.locator('.mobile-nav');
         for (const width of [320, 360, 375, 390, 430]) {
