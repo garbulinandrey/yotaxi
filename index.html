@@ -401,7 +401,7 @@
         @media (min-width: 768px) { .mobile-nav { display: none; } }
         .text-gradient { background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
-    <link rel="stylesheet" href="site.css?v=20261109-mobile-1">
+    <link rel="stylesheet" href="site.css?v=20261110-gallery-1">
 </head>
 <body>
     <!-- Шапка -->
@@ -496,6 +496,11 @@
                     <p class="text-dim mb-0">Выберите автомобиль для работы. Техническое обслуживание и ремонт — за наш счёт.</p>
                 </div>
             </div>
+            <ul class="rental-assurances" aria-label="Преимущества аренды">
+                <li><span class="feature-check" aria-hidden="true"></span>Первый день бесплатно</li>
+                <li><span class="feature-check" aria-hidden="true"></span>Оплата по графику 6/1</li>
+                <li><span class="feature-check" aria-hidden="true"></span>Ремонт за наш счёт</li>
+            </ul>
             <div class="catalog-toolbar">
                 <div class="catalog-filters" role="group" aria-label="Коробка передач">
                     <button type="button" data-filter="all" aria-pressed="true">Все авто</button>
@@ -506,110 +511,116 @@
             </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="car-card" data-gearbox="manual">
-                        <div class="car-img-wrapper"><span class="badge-buyout">Возможен выкуп</span><img src="vesta21.jpeg" alt="Lada Vesta 2019–2021 — аренда под такси" loading="lazy" width="400" height="240"></div>
+                    <article data-car="vesta-2019-21" class="car-card" data-gearbox="manual">
+                        <div class="car-img-wrapper"><button type="button" class="car-photo-trigger" aria-label="Смотреть Lada Vesta"><span class="badge-buyout">Возможен выкуп</span><img src="vesta21.jpeg" alt="Lada Vesta 2019–2021 — аренда под такси" loading="lazy" width="400" height="240"><span class="car-photo-hint">Фото и комплектация</span></button></div>
                         <div class="car-body">
                             <div class="car-heading"><h3>Lada Vesta</h3><span class="car-year">2019–2021</span></div>
                             <div class="car-tags"><span class="tag">МКПП</span><span class="tag">ГАЗ</span></div>
                             <div class="car-rates car-rates-single"><div class="car-rate"><span class="car-rate-label">Аренда</span><div class="car-rate-value">от 1&nbsp;700&nbsp;₽</div><span class="car-rate-unit">/сутки</span></div></div>
-                            <p class="car-description">Кондиционер, круиз-контроль, зимний пакет</p>
-                            <details class="car-details"><summary>Подробнее об автомобиле</summary>
+                            <ul class="car-highlights"><li><span class="feature-check" aria-hidden="true"></span>Кондиционер</li><li><span class="feature-check" aria-hidden="true"></span>Круиз-контроль</li><li><span class="feature-check" aria-hidden="true"></span>Зимний пакет</li></ul>
+                            <template class="vehicle-content">
                                 <p>Кондиционер, круиз-контроль, зимний пакет. Просторный салон.</p>
                                 <div class="equipment-list"><details class="equipment-item"><summary><i class="fas fa-snowflake" aria-hidden="true"></i>Кондиционер</summary><p>Охлаждение воздуха в салоне.</p></details><details class="equipment-item"><summary><i class="fas fa-gauge-high" aria-hidden="true"></i>Круиз-контроль</summary><p>Поддержание выбранной скорости движения.</p></details><details class="equipment-item"><summary><i class="fas fa-temperature-low" aria-hidden="true"></i>Зимний пакет</summary><p>Набор опций для холодного времени года. Конкретные обогревы уточните у менеджера.</p></details></div>
                                 <figure><a href="vesta21.jpeg" target="_blank" rel="noopener"><img src="vesta21.jpeg" alt="Lada Vesta — внешний вид" loading="lazy" width="400" height="240"></a><figcaption>Внешний вид · нажмите на фото, чтобы увеличить</figcaption></figure>
                                 <p class="small text-dim">Комплектацию и наличие конкретного автомобиля подтвердит менеджер.</p>
-                            </details>
-                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="vesta-2019-21">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button>
+                            </template>
+                            <div class="car-actions"><button type="button" class="car-detail-trigger">Подробнее</button>
+                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="vesta-2019-21">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button></div>
                         </div>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="car-card" data-gearbox="manual">
-                        <div class="car-img-wrapper"><span class="badge-buyout">Возможен выкуп</span><img src="vesta23.jpg" alt="Lada Vesta NG 2023 — аренда под такси" loading="lazy" width="400" height="240"></div>
+                    <article data-car="vesta-2023" class="car-card" data-gearbox="manual">
+                        <div class="car-img-wrapper"><button type="button" class="car-photo-trigger" aria-label="Смотреть Lada Vesta NG"><span class="badge-buyout">Возможен выкуп</span><img src="vesta23.jpg" alt="Lada Vesta NG 2023 — аренда под такси" loading="lazy" width="400" height="240"><span class="car-photo-hint">Фото и комплектация</span></button></div>
                         <div class="car-body">
                             <div class="car-heading"><h3>Lada Vesta NG</h3><span class="car-year">2023</span></div>
                             <div class="car-tags"><span class="tag">МКПП</span><span class="tag">ГАЗ</span></div>
                             <div class="car-rates car-rates-single"><div class="car-rate"><span class="car-rate-label">Аренда</span><div class="car-rate-value">от 1&nbsp;900&nbsp;₽</div><span class="car-rate-unit">/сутки</span></div></div>
-                            <p class="car-description">Новый кузов и LED-оптика</p>
-                            <details class="car-details"><summary>Подробнее об автомобиле</summary>
+                            <ul class="car-highlights"><li><span class="feature-check" aria-hidden="true"></span>Кондиционер</li><li><span class="feature-check" aria-hidden="true"></span>LED-оптика</li><li><span class="feature-check" aria-hidden="true"></span>Зимний пакет</li></ul>
+                            <template class="vehicle-content">
                                 <p>Новый кузов и LED-оптика. Кондиционер, зимний пакет.</p>
                                 <div class="equipment-list"><details class="equipment-item"><summary><i class="fas fa-snowflake" aria-hidden="true"></i>Кондиционер</summary><p>Охлаждение воздуха в салоне.</p></details><details class="equipment-item"><summary><i class="fas fa-lightbulb" aria-hidden="true"></i>LED-оптика</summary><p>Светодиодная оптика.</p></details><details class="equipment-item"><summary><i class="fas fa-temperature-low" aria-hidden="true"></i>Зимний пакет</summary><p>Набор опций для холодного времени года. Конкретные обогревы уточните у менеджера.</p></details></div>
                                 <figure><a href="vesta23.jpg" target="_blank" rel="noopener"><img src="vesta23.jpg" alt="Lada Vesta NG — внешний вид" loading="lazy" width="400" height="240"></a><figcaption>Внешний вид · нажмите на фото, чтобы увеличить</figcaption></figure>
                                 <p class="small text-dim">Комплектацию и наличие конкретного автомобиля подтвердит менеджер.</p>
-                            </details>
-                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="vesta-2023">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button>
+                            </template>
+                            <div class="car-actions"><button type="button" class="car-detail-trigger">Подробнее</button>
+                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="vesta-2023">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button></div>
                         </div>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="car-card" data-gearbox="manual auto">
-                        <div class="car-img-wrapper"><img src="solaris.jpeg" alt="Solaris 2021 — аренда под такси" loading="lazy" width="400" height="240"></div>
+                    <article data-car="solaris-manual" class="car-card" data-gearbox="manual auto">
+                        <div class="car-img-wrapper"><button type="button" class="car-photo-trigger" aria-label="Смотреть Solaris"><img src="solaris.jpeg" alt="Solaris 2021 — аренда под такси" loading="lazy" width="400" height="240"><span class="car-photo-hint">Фото и комплектация</span></button></div>
                         <div class="car-body">
                             <div class="car-heading"><h3>Solaris</h3><span class="car-year">2021</span></div>
                             <div class="car-tags"><span class="tag">МКПП / АКПП</span><span class="tag">ГАЗ</span></div>
                             <div class="car-rates" role="group" aria-label="Выберите вариант автомобиля"><button type="button" class="car-rate car-rate-choice" data-variant="solaris-manual" aria-pressed="true"><span class="car-rate-label">МКПП</span><span class="car-rate-value">от 1&nbsp;900&nbsp;₽</span><span class="car-rate-unit">/сутки</span></button><button type="button" class="car-rate car-rate-choice" data-variant="solaris-auto" aria-pressed="false"><span class="car-rate-label">АКПП</span><span class="car-rate-value">от 2&nbsp;100&nbsp;₽</span><span class="car-rate-unit">/сутки</span></button></div>
-                            <p class="car-description">Надёжный и экономичный</p>
-                            <details class="car-details"><summary>Подробнее об автомобиле</summary>
+                            <ul class="car-highlights"><li><span class="feature-check" aria-hidden="true"></span>Надёжный и экономичный</li><li><span class="feature-check" aria-hidden="true"></span>Комфорт и простота в управлении</li></ul>
+                            <template class="vehicle-content">
                                 <p>Надёжный и экономичный. Комфорт и простота в управлении.</p>
                                 <div class="equipment-list"></div>
                                 <figure><a href="solaris.jpeg" target="_blank" rel="noopener"><img src="solaris.jpeg" alt="Solaris — внешний вид" loading="lazy" width="400" height="240"></a><figcaption>Внешний вид · нажмите на фото, чтобы увеличить</figcaption></figure>
                                 <p class="small text-dim">Комплектацию и наличие конкретного автомобиля подтвердит менеджер.</p>
-                            </details>
-                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="solaris-manual">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button>
+                            </template>
+                            <div class="car-actions"><button type="button" class="car-detail-trigger">Подробнее</button>
+                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="solaris-manual">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button></div>
                         </div>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="car-card" data-gearbox="auto">
-                        <div class="car-img-wrapper"><span class="badge-buyout">Возможен выкуп</span><img src="jetta.jpeg" alt="Jetta VA3  — аренда под такси" loading="lazy" width="400" height="240"></div>
+                    <article data-car="jetta" class="car-card" data-gearbox="auto">
+                        <div class="car-img-wrapper"><button type="button" class="car-photo-trigger" aria-label="Смотреть Jetta VA3"><span class="badge-buyout">Возможен выкуп</span><img src="jetta.jpeg" alt="Jetta VA3  — аренда под такси" loading="lazy" width="400" height="240"><span class="car-photo-hint">Фото и комплектация</span></button></div>
                         <div class="car-body">
                             <div class="car-heading"><h3>Jetta VA3</h3><span class="car-year">&nbsp;</span></div>
                             <div class="car-tags"><span class="tag">АКПП</span><span class="tag">ГАЗ</span></div>
                             <div class="car-rates car-rates-single"><div class="car-rate"><span class="car-rate-label">Аренда</span><div class="car-rate-value">от 2&nbsp;200&nbsp;₽</div><span class="car-rate-unit">/сутки</span></div></div>
-                            <p class="car-description">Аналог Volkswagen Polo</p>
-                            <details class="car-details"><summary>Подробнее об автомобиле</summary>
+                            <ul class="car-highlights"><li><span class="feature-check" aria-hidden="true"></span>Аналог Volkswagen Polo</li><li><span class="feature-check" aria-hidden="true"></span>Экономичный, высокий клиренс</li></ul>
+                            <template class="vehicle-content">
                                 <p>Аналог Volkswagen Polo. Экономичный, высокий клиренс.</p>
                                 <div class="equipment-list"></div>
                                 <figure><a href="jetta.jpeg" target="_blank" rel="noopener"><img src="jetta.jpeg" alt="Jetta VA3 — внешний вид" loading="lazy" width="400" height="240"></a><figcaption>Внешний вид · нажмите на фото, чтобы увеличить</figcaption></figure>
                                 <p class="small text-dim">Комплектацию и наличие конкретного автомобиля подтвердит менеджер.</p>
-                            </details>
-                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="jetta">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button>
+                            </template>
+                            <div class="car-actions"><button type="button" class="car-detail-trigger">Подробнее</button>
+                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="jetta">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button></div>
                         </div>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="car-card" data-gearbox="auto">
-                        <div class="car-img-wrapper"><img src="solaris24.jpeg" alt="Solaris 2024–2025 — аренда под такси" loading="lazy" width="400" height="240"></div>
+                    <article data-car="solaris-2024" class="car-card" data-gearbox="auto">
+                        <div class="car-img-wrapper"><button type="button" class="car-photo-trigger" aria-label="Смотреть Solaris"><img src="solaris24.jpeg" alt="Solaris 2024–2025 — аренда под такси" loading="lazy" width="400" height="240"><span class="car-photo-hint">Фото и комплектация</span></button></div>
                         <div class="car-body">
                             <div class="car-heading"><h3>Solaris</h3><span class="car-year">2024–2025</span></div>
                             <div class="car-tags"><span class="tag">АКПП</span></div>
                             <div class="car-rates" role="group" aria-label="Выберите вариант автомобиля"><button type="button" class="car-rate car-rate-choice" data-variant="solaris-2024" aria-pressed="true"><span class="car-rate-label">2024 год</span><span class="car-rate-value">от 2&nbsp;400&nbsp;₽</span><span class="car-rate-unit">/сутки</span></button><button type="button" class="car-rate car-rate-choice" data-variant="solaris-2025" aria-pressed="false"><span class="car-rate-label">2025 год</span><span class="car-rate-value">от 2&nbsp;500&nbsp;₽</span><span class="car-rate-unit">/сутки</span></button></div>
-                            <p class="car-description">Надёжный и экономичный</p>
-                            <details class="car-details"><summary>Подробнее об автомобиле</summary>
+                            <ul class="car-highlights"><li><span class="feature-check" aria-hidden="true"></span>Надёжный и экономичный</li><li><span class="feature-check" aria-hidden="true"></span>Максимальный комфорт</li></ul>
+                            <template class="vehicle-content">
                                 <p>Надёжный и экономичный. Максимальный комфорт.</p>
                                 <div class="equipment-list"></div>
                                 <figure><a href="solaris24.jpeg" target="_blank" rel="noopener"><img src="solaris24.jpeg" alt="Solaris — внешний вид" loading="lazy" width="400" height="240"></a><figcaption>Внешний вид · нажмите на фото, чтобы увеличить</figcaption></figure>
                                 <p class="small text-dim">Комплектацию и наличие конкретного автомобиля подтвердит менеджер.</p>
-                            </details>
-                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="solaris-2024">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button>
+                            </template>
+                            <div class="car-actions"><button type="button" class="car-detail-trigger">Подробнее</button>
+                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="solaris-2024">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button></div>
                         </div>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <article class="car-card" data-gearbox="auto">
-                        <div class="car-img-wrapper"><span class="badge-buyout">Возможен выкуп</span><img src="haval.jpeg" alt="Haval Jolion 2025 — аренда под такси" loading="lazy" width="400" height="240"></div>
+                    <article data-car="haval-rent" class="car-card" data-gearbox="auto">
+                        <div class="car-img-wrapper"><button type="button" class="car-photo-trigger" aria-label="Смотреть Haval Jolion"><span class="badge-buyout">Возможен выкуп</span><img src="haval.jpeg" alt="Haval Jolion 2025 — аренда под такси" loading="lazy" width="400" height="240"><span class="car-photo-hint">Фото и комплектация</span></button></div>
                         <div class="car-body">
                             <div class="car-heading"><h3>Haval Jolion</h3><span class="car-year">2025</span></div>
                             <div class="car-tags"><span class="tag">АКПП</span><span class="tag">ГАЗ</span><span class="tag">Комфорт+</span></div>
                             <div class="car-rates" role="group" aria-label="Выберите вариант автомобиля"><button type="button" class="car-rate car-rate-choice" data-variant="haval-rent" aria-pressed="true"><span class="car-rate-label">Аренда</span><span class="car-rate-value">от 2&nbsp;900&nbsp;₽</span><span class="car-rate-unit">/сутки</span></button><button type="button" class="car-rate car-rate-choice" data-variant="haval-buyout" aria-pressed="false"><span class="car-rate-label">Выкуп</span><span class="car-rate-value">от 3&nbsp;500&nbsp;₽</span><span class="car-rate-unit">/сутки</span></button></div>
-                            <p class="car-description">Климат-контроль, мультимедиа</p>
-                            <details class="car-details"><summary>Подробнее об автомобиле</summary>
+                            <ul class="car-highlights"><li><span class="feature-check" aria-hidden="true"></span>Климат-контроль</li><li><span class="feature-check" aria-hidden="true"></span>Мультимедиа</li></ul>
+                            <template class="vehicle-content">
                                 <p>Климат-контроль, мультимедиа. Белый кузов без наклеек.</p>
                                 <div class="equipment-list"><details class="equipment-item"><summary><i class="fas fa-snowflake" aria-hidden="true"></i>Климат-контроль</summary><p>Автоматическое поддержание заданной температуры в салоне.</p></details><details class="equipment-item"><summary><i class="fas fa-music" aria-hidden="true"></i>Мультимедиа</summary><p>Мультимедийная система. Поддержку Bluetooth в конкретной машине уточните у менеджера.</p></details></div>
                                 <figure><a href="haval.jpeg" target="_blank" rel="noopener"><img src="haval.jpeg" alt="Haval Jolion — внешний вид" loading="lazy" width="400" height="240"></a><figcaption>Внешний вид · нажмите на фото, чтобы увеличить</figcaption></figure>
                                 <p class="small text-dim">Комплектацию и наличие конкретного автомобиля подтвердит менеджер.</p>
-                            </details>
-                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="haval-rent">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button>
+                            </template>
+                            <div class="car-actions"><button type="button" class="car-detail-trigger">Подробнее</button>
+                            <button type="button" class="btn btn-primary-custom booking-trigger mt-auto" data-bs-toggle="modal" data-bs-target="#callbackModal" data-vehicle="haval-rent">Бронировать <span class="cta-arrow" aria-hidden="true"></span></button></div>
                         </div>
                     </article>
                 </div>
@@ -1117,6 +1128,36 @@
         <button type="button" class="chat-toggle" id="chatToggle" aria-label="Выбрать способ связи" aria-controls="chatButtons" aria-expanded="false"><i class="fas fa-comment-dots"></i></button>
     </div>
 
+    <!-- A separate vehicle view preserves the catalog behind it. -->
+    <dialog id="vehicleDialog" class="vehicle-dialog" aria-labelledby="vehicleTitle">
+        <div class="vehicle-dialog-shell">
+            <header class="vehicle-view-header"><button type="button" id="vehicleBack" class="vehicle-back"><span class="back-chevron" aria-hidden="true"></span>Назад к автомобилям</button><span id="vehicleModelCount"></span></header>
+            <div class="vehicle-view-scroll">
+                <div class="vehicle-view-layout">
+                    <div class="vehicle-visual">
+                        <div class="vehicle-gallery" id="vehicleGallery" tabindex="0" aria-label="Фотографии автомобиля">
+                            <img id="vehicleGalleryImage" alt="" width="800" height="480">
+                            <button type="button" id="vehiclePhotoPrev" class="gallery-control gallery-prev" aria-label="Предыдущее фото"><span class="back-chevron" aria-hidden="true"></span></button>
+                            <button type="button" id="vehiclePhotoNext" class="gallery-control gallery-next" aria-label="Следующее фото"><span class="back-chevron" aria-hidden="true"></span></button>
+                        </div>
+                        <div class="vehicle-photo-meta"><span id="vehiclePhotoCaption"></span><span id="vehiclePhotoCount" aria-live="polite"></span></div>
+                        <div id="vehicleThumbnails" class="vehicle-thumbnails" aria-label="Выбрать фотографию"></div>
+                        <nav class="vehicle-model-nav" aria-label="Другие автомобили"><button type="button" id="vehicleModelPrev">Предыдущая модель</button><button type="button" id="vehicleModelNext">Следующая модель</button></nav>
+                    </div>
+                    <div class="vehicle-information">
+                        <p class="vehicle-view-eyebrow">Автопарк Центральный</p>
+                        <h2 id="vehicleTitle" aria-live="polite"></h2><p id="vehicleYear" class="text-dim"></p>
+                        <div id="vehicleTags" class="car-tags"></div>
+                        <h3>Стоимость и варианты</h3><div id="vehicleRates" class="vehicle-rates"></div>
+                        <h3>Об автомобиле</h3><div id="vehicleDescription"></div>
+                        <div class="vehicle-terms"><strong>Условия автопарка</strong><p>Первый день бесплатно · график 6/1</p><p>Депозит 10 000 ₽ — можно вносить по 300 ₽ в день. Обслуживание и ремонт за наш счёт.</p></div>
+                    </div>
+                </div>
+            </div>
+            <footer class="vehicle-view-footer"><div><span id="vehicleFooterLabel"></span><strong id="vehicleFooterPrice"></strong><small>/сутки</small></div><button type="button" id="vehicleBook" class="btn btn-primary-custom">Забронировать <span class="cta-arrow" aria-hidden="true"></span></button></footer>
+        </div>
+    </dialog>
+
     <!-- Модальное окно: Заявка -->
     <div class="modal fade" id="callbackModal" tabindex="-1" aria-hidden="true" aria-label="Форма заказа звонка">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -1207,5 +1248,6 @@
     <script src="privacy.js?v=20261109-1" defer></script>
     <script src="callback.js?v=20261109-mobile-1" defer></script>
     <script src="mobile.js?v=20261110-mobile-2" defer></script>
+    <script src="vehicle.js?v=20261110-gallery-1" defer></script>
 </body>
 </html>
