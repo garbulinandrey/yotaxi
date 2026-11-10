@@ -29,11 +29,12 @@ assert '<link rel="canonical" href="https://yotaxi.ru/">' in page
 assert 'booking-preview/' not in page and 'booking-mobile/' not in page
 assert page[page.index('<body>'):].replace(namespace + '/', '') == source[source.index('<body>'):]
 (out / 'index.html').write_text(page)
-for name in ('robots.txt', 'sitemap.xml'):
+branding = ('logo-central.png', 'favicon.ico', 'favicon-32x32.png', 'favicon-48x48.png', 'favicon-96x96.png', 'apple-touch-icon.png', 'android-chrome-192x192.png', 'android-chrome-512x512.png', 'site.webmanifest')
+for name in ('robots.txt', 'sitemap.xml') + branding:
     shutil.copyfile(root / name, out / name)
 archive = root / 'releases/yotaxi-main-20261110.zip'
 with ZipFile(archive, 'w', ZIP_DEFLATED) as z:
-    for name in ('index.html', 'robots.txt', 'sitemap.xml'):
+    for name in ('index.html', 'robots.txt', 'sitemap.xml') + branding:
         z.write(out / name, name)
     for name in files:
         z.write(assets / name, namespace + '/' + name)

@@ -25,3 +25,7 @@
 SITE_URL=http://127.0.0.1:8094/ PREVIEW_PAGE=index.html node tests/mobile.browser.cjs
 SITE_URL=http://127.0.0.1:8094/ PREVIEW_PAGE=index.html node tests/vehicle.browser.cjs
 Статические SEO-проверки и отсутствие noindex в основном документе обязательны. Локальные отправки перехватываются; реальная отправка менеджеру проверяется владельцем после размещения.
+
+## Логотип и контакты
+
+В комплект включены новый прозрачный logo-central.png (256×256, около 59 КБ), favicon.ico с размерами 16/32/48, PNG-иконки 32/48/96, apple-touch-icon 180, Android 192/512 и site.webmanifest. Новые имена и версия ссылок обходят кэш прежнего логотипа. Макет и название организации сохранены; WhatsApp удалён из футера, виджета и sameAs JSON-LD. Исходный PNG высокого разрешения — branding/logo-central-master.png в репозитории; в сайт загружается облегчённая версия.

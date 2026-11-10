@@ -46,8 +46,8 @@
   "url": "https://yotaxi.ru/",
   "telephone": "+79278835566",
   "email": "info@yotaxi.ru",
-  "image": "https://yotaxi.ru/logo.png",
-  "logo": "https://yotaxi.ru/logo.png",
+  "image": "https://yotaxi.ru/logo-central.png",
+  "logo": "https://yotaxi.ru/logo-central.png",
   "priceRange": "от 1700 ₽/сутки",
   "currenciesAccepted": "RUB",
   "areaServed": {
@@ -86,8 +86,7 @@
   ],
   "sameAs": [
     "https://t.me/yotaxi",
-    "https://vk.com/yotaxi12",
-    "https://wa.me/79278835566"
+    "https://vk.com/yotaxi12"
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -390,7 +389,12 @@
 }
     </script>
 
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" href="favicon.ico?v=20261110-1" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20261110-1">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png?v=20261110-1">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png?v=20261110-1">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261110-1">
+    <link rel="manifest" href="site.webmanifest?v=20261110-1">
     <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -572,7 +576,7 @@
         .chat-buttons.active { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
         .chat-btn { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white !important; text-decoration: none; font-size: 22px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; }
         .chat-btn:hover { transform: scale(1.1); color: white !important; }
-        .chat-btn.wa { background: #25D366; }
+
         .chat-btn.tg { background: #0088cc; }
         .chat-btn.vk { background: #0077FF; }
         .chat-btn.max { background: #FF6B35; }
@@ -591,7 +595,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="logo.png" alt="Логотип Автопарк Центральный" width="50" height="50" class="me-3 rounded-circle border border-secondary">
+                <img src="logo-central.png?v=20261110-1" alt="Логотип Автопарк Центральный" width="50" height="50" class="me-3">
                 <div class="d-flex flex-column">
                     <span class="text-secondary text-uppercase fw-bold" style="font-size:0.7rem;letter-spacing:2px;">Автопарк</span>
                     <span class="fw-bold text-light" style="font-size:1.5rem;line-height:1;">Центральный</span>
@@ -1259,7 +1263,7 @@
             <div class="row gy-4 justify-content-between">
                 <div class="col-md-4">
                     <div class="d-flex align-items-center mb-3">
-                        <img src="logo.png" alt="Автопарк Центральный — аренда авто под такси Йошкар-Ола" width="40" height="40" loading="lazy" class="me-2">
+                        <img src="logo-central.png?v=20261110-1" alt="Автопарк Центральный — аренда авто под такси Йошкар-Ола" width="40" height="40" loading="lazy" class="me-2">
                         <div style="line-height:1;">
                             <div class="text-dim small text-uppercase">Автопарк</div>
                             <div class="fw-bold fs-4 text-white">Центральный</div>
@@ -1276,7 +1280,6 @@
                     <a href="tel:+79278835566" class="d-block fs-4 fw-bold text-white text-decoration-none mb-2">+7 (927) 883-55-66</a>
                     <a href="mailto:info@yotaxi.ru" class="d-block text-white text-decoration-none mb-2">info@yotaxi.ru</a>
                     <div class="d-flex gap-3 justify-content-md-end">
-                        <a href="https://wa.me/79278835566" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary rounded-circle" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://t.me/yotaxi" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary rounded-circle" title="Telegram"><i class="fab fa-telegram"></i></a>
                         <a href="https://vk.com/yotaxi12" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary rounded-circle" title="ВКонтакте"><i class="fab fa-vk"></i></a>
                         <a href="https://max.ru/u/f9LHodD0cOIqWV7gTFNCZoua1t1hhnSrA0PSkE62GQEwLTT5bFWs73iU22M" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary rounded-circle d-inline-flex align-items-center justify-content-center" title="Max" style="width:38px;height:38px;padding:0;overflow:hidden;"><img loading="lazy" decoding="async" src="max2.png" alt="Max" style="width:34px;height:34px;object-fit:contain;border-radius:50%;"></a>
@@ -1304,7 +1307,6 @@
     <div class="chat-widget">
         <div class="chat-buttons" id="chatButtons">
             <a href="https://t.me/yotaxi" class="chat-btn tg" target="_blank" rel="noopener noreferrer" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://wa.me/79278835566" class="chat-btn wa" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             <a href="https://vk.com/yotaxi12" class="chat-btn vk" target="_blank" rel="noopener noreferrer" title="ВКонтакте"><i class="fab fa-vk"></i></a>
             <a href="https://max.ru/u/f9LHodD0cOIqWV7gTFNCZoua1t1hhnSrA0PSkE62GQEwLTT5bFWs73iU22M" class="chat-btn max" target="_blank" rel="noopener noreferrer" title="Max" style="background:transparent;box-shadow:none;padding:0;"><img loading="lazy" decoding="async" src="max.png" alt="Max" style="width:50px;height:50px;object-fit:contain;border-radius:50%;"></a>
         </div>
