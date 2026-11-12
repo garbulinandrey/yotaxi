@@ -1,0 +1,38 @@
+{
+  "vesta-2019-21": [
+    {
+      "src": "vesta21.jpeg",
+      "caption": "Внешний вид"
+    }
+  ],
+  "vesta-2023": [
+    {
+      "src": "vesta23.jpg",
+      "caption": "Внешний вид"
+    }
+  ],
+  "solaris-manual": [
+    {
+      "src": "solaris.jpeg",
+      "caption": "Внешний вид"
+    }
+  ],
+  "jetta": [
+    {
+      "src": "jetta.jpeg",
+      "caption": "Внешний вид"
+    }
+  ],
+  "solaris-2024": [
+    {
+      "src": "solaris24.jpeg",
+      "caption": "Внешний вид"
+    }
+  ],
+  "haval-rent": [
+    {
+      "src": "haval.jpeg",
+      "caption": "Внешний вид"
+    }
+  ]
+}
